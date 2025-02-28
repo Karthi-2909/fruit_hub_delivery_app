@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_delivery_app/login/aunthetication_page.dart';
+import 'package:fruit_hub_delivery_app/login/welcome_page.dart';
 import 'package:fruit_hub_delivery_app/widgets/basket_page.dart';
+import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
 // import 'package:fruit_hub_delivery_app/widgets/order_complete_page.dart';
 // import 'package:fruit_hub_delivery_app/login/aunthetication_page.dart';
 // import 'package:fruit_hub_delivery_app/login/splash.dart';
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fruit Hub Delivery App',
-      home: BasketPage(),
+      home: HomeRowPage(),
     );
   }
 }
