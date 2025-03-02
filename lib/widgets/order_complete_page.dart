@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
+
+
 class OrderCompletePage extends StatefulWidget {
   const OrderCompletePage({super.key});
 
@@ -63,7 +66,13 @@ class _OrderCompletePageState extends State<OrderCompletePage> {
               SizedBox(
                 height: 60,
                 width: 300,
-                child: OutlinedButton(onPressed: (){},
+                child: OutlinedButton(onPressed: (){
+                   Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomeRowPage()));
+                },
                 style: OutlinedButton.styleFrom(
                   backgroundColor: AppColors.secondarycolor,
                   foregroundColor: AppColors.primarycolor,
