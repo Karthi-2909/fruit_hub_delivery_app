@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+import 'package:fruit_hub_delivery_app/widgets/order_list.dart';
 
 class BasketPage extends StatefulWidget {
   const BasketPage({super.key});
@@ -232,7 +233,13 @@ class _BasketPageState extends State<BasketPage> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
-                            onPressed: () {},
+                            onPressed: () {
+                               Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    OrderPage()));
+                            },
                             child: Text(
                               "Add to basket",
                               style: TextStyle(fontSize: 18),
