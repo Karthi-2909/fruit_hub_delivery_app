@@ -13,35 +13,38 @@ class _HomeRowPageState extends State<HomeRowPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 30),
-          child: Icon(Icons.menu, color: Colors.black),
-        ),
-        actions: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-               SizedBox(
-              height: 30,
-              width: 20,  
-              child: Image.asset(
-                "assets/images/shopping-basket.png",
-                fit: BoxFit.contain, 
-              ),),
-              SizedBox(height: 4),
-              Text(
-                "My basket",
-                style: TextStyle(fontSize: 12, color: Colors.orange),
-              )
-            ],
+     appBar: AppBar(
+  backgroundColor: Colors.white,
+  elevation: 0,toolbarHeight: 70,
+  leading: Padding(
+    padding: const EdgeInsets.only(left: 16), 
+    child: Icon(Icons.menu, color: Colors.black),
+  ),
+  actions: [
+    Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisSize: MainAxisSize.min, 
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Image.asset(
+            "assets/images/fa_shopping-basket (1).png",
+            fit: BoxFit.contain,width: 25,
+            height: 25,
           ),
-          SizedBox(width: 20),
-        ],
-      ),
-      body: Padding(
+        ),
+        SizedBox(height: 2), // Reduce spacing
+        Padding(
+          padding: const EdgeInsets.only(right: 9),
+          child: Text(
+            "My basket",
+            style: TextStyle(fontSize: 9, color: Colors.orange),
+          ),
+        ),
+      ],
+    ),
+  ],
+),
+  body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,46 +62,56 @@ class _HomeRowPageState extends State<HomeRowPage> {
               ),
             ),
             SizedBox(height: 20),
-
-            Container(
-              decoration: BoxDecoration(
-                color: Color(0xfff3f4f9),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintStyle: TextStyle(color: Colors.black38, fontSize: 12),
-                  hintText: "Search for fruit salad combos",
-                  prefixIcon: Icon(Icons.search, color: Colors.grey),
-                  suffixIcon: Icon(Icons.tune, color: Colors.black),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15),
+            Row(
+              children: [
+                Expanded(
+                  flex: 8, 
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xfff3f4f9),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintStyle:
+                            TextStyle(color: Colors.black38, fontSize: 12),
+                        hintText: "Search for fruit salad combos",
+                        prefixIcon: Icon(Icons.search, color: Colors.grey),
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(vertical: 15),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+                SizedBox(width: 10), // Space between search and icon
+                Container(
+                  padding: EdgeInsets.all(10),
+                 
+                  child: Icon(Icons.tune_rounded, color: Colors.black),
+                ),
+              ],
             ),
             SizedBox(height: 35),
-
             Text(
               "Recommended Combo",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-
             SizedBox(
               height: 165,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
                   FruitCard("assets/images/Honey_Lime_Peach_Fruit_Salad.png",
-                      "Honey lime combo", "₦ 2,000",Colors.white),
+                      "Honey lime combo", "₦ 2,000", Colors.white),
                   SizedBox(width: 3),
                   FruitCard("assets/images/Glowing_Berry_Fruit_Salad.png",
                       "Berry mango combo", "₦ 8,000", Colors.white),
+                    
                 ],
               ),
             ),
             SizedBox(height: 50),
-
             Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
@@ -115,7 +128,6 @@ class _HomeRowPageState extends State<HomeRowPage> {
               ),
             ),
             SizedBox(height: 10),
-
             SizedBox(
               height: 165,
               child: ListView(
@@ -127,11 +139,17 @@ class _HomeRowPageState extends State<HomeRowPage> {
                       "₦ 10,000",
                       Color(0xfffffaec)),
                   SizedBox(width: 4),
-                  FruitCard(
-                      "assets/images/Tropical_Fruit_Salad.png",
-                      "Tropical fruit salad",
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: FruitCard("assets/images/Tropical_Fruit_Salad.png",
+                        "Tropical fruit salad", "₦ 10,000", Color(0xfffef0f0),imageSize: 200,),
+                  ),
+                      SizedBox(width: 4),
+                      FruitCard(
+                      "assets/images/breakfast_quinoa_red_fruit_salad.png",
+                      "Quinoa fruit salad",
                       "₦ 10,000",
-                     Color(0xfffef0f0)),
+                      Color(0xfffffaec)),
                 ],
               ),
             ),
@@ -149,8 +167,7 @@ class FruitCard extends StatelessWidget {
   final Color backgroundColor;
   final double? imageSize;
 
-  const FruitCard(
-      this.imagePath, this.title, this.price, this.backgroundColor,
+  const FruitCard(this.imagePath, this.title, this.price, this.backgroundColor,
       {this.imageSize, super.key});
 
   @override
@@ -194,7 +211,8 @@ class FruitCard extends StatelessWidget {
                   CircleAvatar(
                     radius: 13,
                     backgroundColor: Color.fromARGB(31, 232, 181, 127),
-                    child: Icon(Icons.add, color: AppColors.primarycolor, size: 18),
+                    child: Icon(Icons.add,
+                        color: AppColors.primarycolor, size: 18),
                   ),
                 ],
               ),
