@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_delivery_app/login/aunthetication_page.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -87,6 +88,7 @@ class _WelcomePageState extends State<WelcomePage> {
                          width: 320,
                         child: ElevatedButton(
                           onPressed: () {
+                             Navigator.push(context, MaterialPageRoute(builder: (context)=> AuntheticationPage()));
                                           
                           },
                           style: ElevatedButton.styleFrom(

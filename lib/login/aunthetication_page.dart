@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
 
 class AuntheticationPage extends StatefulWidget {
   const AuntheticationPage({super.key});
@@ -18,23 +19,43 @@ class _AuntheticationPageState extends State<AuntheticationPage> {
       body: Column(
         children: [
           // Primary Theme Container with Images
-          Expanded(
-            // Expands to fill available space without overflow
-            flex: 5, // 50% of the screen
-            child: Container(
-              color: AppColors.primarycolor,
+          Container(
+              height: MediaQuery.of(context).size.height * 0.6,
               width: double.infinity,
+              color: AppColors.primarycolor,
               child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min, // Avoid unnecessary space
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 80),
+                  child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset("assets/images/fruit_basket.png"),
-                    Image.asset("assets/images/fruit_basket_shadow.png"),
+                     Padding(
+                       padding: const EdgeInsets.only(left: 200),
+                       child: Image.asset(
+                        'assets/images/fruit_drop.png', 
+                        width: 40, 
+                                           ),
+                     ),         
+                    Padding(
+                      padding: const EdgeInsets.only(right: 18),
+                      child: 
+                      
+                      Image.asset(
+                        'assets/images/fruit_basket.png', 
+                        height: 260,
+                        width: 330, 
+                      ),
+                    ),
+                    SizedBox(height: 6), 
+                                 
+                    Image.asset(
+                      'assets/images/fruit_basket_shadow.png', 
+                      width: 260, 
+                    ),
                   ],
                 ),
-              ),
-            ),
-          ),
+                ),
+            ),),
 
           // Secondary Theme Container with TextBox
           Expanded(
@@ -79,7 +100,9 @@ class _AuntheticationPageState extends State<AuntheticationPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeRowPage()));
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primarycolor,
                         foregroundColor: AppColors.secondarycolor,
