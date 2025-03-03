@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/login/splash.dart';
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 180d773f098d130b0086cf699bafab57805b12ec
 void main() {
   runApp(const MyApp());
 }

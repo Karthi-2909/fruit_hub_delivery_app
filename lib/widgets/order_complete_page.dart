@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
 import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
+import 'package:fruit_hub_delivery_app/widgets/track_page.dart';
+
 
 
 class OrderCompletePage extends StatefulWidget {
@@ -48,7 +50,13 @@ class _OrderCompletePageState extends State<OrderCompletePage> {
             SizedBox(
               height: 60,
               width: 200,
-              child: ElevatedButton(onPressed: (){}, 
+              child: ElevatedButton(onPressed: (){
+                 Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    TrackOrderPage()));
+              }, 
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primarycolor,
                 foregroundColor: AppColors.secondarycolor,
