@@ -28,7 +28,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 13),
                 child: Image.asset(
                   "assets/images/fa_shopping-basket (1).png",
                   fit: BoxFit.contain,
@@ -38,10 +38,10 @@ class _HomeRowPageState extends State<HomeRowPage> {
               ),
               SizedBox(height: 2), // Reduce spacing
               Padding(
-                padding: const EdgeInsets.only(right: 9),
+                padding: const EdgeInsets.only(right: 20),
                 child: Text(
                   "My basket",
-                  style: TextStyle(fontSize: 9, color: Colors.orange),
+                  style: TextStyle(fontSize: 9, color: Colors.black54,fontWeight: FontWeight.w700),
                 ),
               ),
             ],
@@ -199,7 +199,15 @@ class FruitCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(imagePath, width: imageSize ?? 80),
+            Stack(
+              children: [
+                Image.asset(imagePath, width: imageSize ?? 80),
+                Padding(
+                  padding: const EdgeInsets.only(left: 80,bottom: 10),
+                  child: Icon(Icons.favorite_border, color: AppColors.primarycolor, size: 16),
+                ),
+              ],
+            ),
             SizedBox(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,

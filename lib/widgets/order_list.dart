@@ -64,7 +64,7 @@ class _OrderPageState extends State<OrderPage> {
               width: double.infinity,
               child: Row(
                 children: [
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 12,),
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(12),
@@ -76,7 +76,7 @@ class _OrderPageState extends State<OrderPage> {
                     icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
                     label: const Text(
                       "Go Back",
-                      style: TextStyle(color: Colors.black, fontSize: 15),
+                      style: TextStyle(color: Colors.black, fontSize: 10),
                     ),
                   ),
                   const SizedBox(width: 20),
@@ -86,7 +86,7 @@ class _OrderPageState extends State<OrderPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: AppColors.secondarycolor,
-                        fontSize: 25,
+                        fontSize: 21,
                       ),
                     ),
                   )
@@ -122,21 +122,22 @@ class _OrderPageState extends State<OrderPage> {
                           children: [
                             Text(item['name'],
                                 style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                                    fontSize: 14, fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 3,),
                             Text("${item['quantity']}",
                                 style: const TextStyle(
-                                    fontSize: 12, color: Colors.black)),
+                                    fontSize: 11, color: Colors.black87)),
                           ],
                         ),
                         trailing: Text(
-                          "\u20A6 ${formatPrice(item['price'] * 1000)}", // Multiply by 1,000 and format
+                          "\u20A6 ${formatPrice(item['price'] * 1000)}",
                           style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
+                              fontSize: 15.5,
+                            
+                              color: Colors.black87),
                         ),
                       ),
-                      const Divider(thickness: 1, color: Colors.grey),
+                      const Divider(thickness: 0.15, color: Colors.grey),
                     ],
                   );
                 },
@@ -157,13 +158,18 @@ class _OrderPageState extends State<OrderPage> {
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primarycolor,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+            
+            SizedBox(
+  width: 180,
+  height: 50, // Makes the button take full width
+  child: ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: AppColors.primarycolor,
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
               onPressed: () {
                 showModalBottomSheet(
                     context: context,
@@ -552,11 +558,11 @@ class _OrderPageState extends State<OrderPage> {
               child: Text(
                 "Checkout",
                 style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-            ),
+            ),),
           ],
         ),
       ),
