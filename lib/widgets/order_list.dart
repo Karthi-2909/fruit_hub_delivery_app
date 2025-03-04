@@ -112,22 +112,23 @@ class _OrderPageState extends State<OrderPage> {
                               color: boxColors[index % boxColors.length],
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child:
-                                Image.asset(item['image'], width: 50, height: 50),
+                            child: Image.asset(item['image'],
+                                width: 50, height: 50),
                           ),
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(item['name'],
                                   style: const TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.bold)),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
                               Text("${item['quantity']}",
                                   style: const TextStyle(
                                       fontSize: 12, color: Colors.black)),
                             ],
                           ),
                           trailing: Text(
-                            "\u20A6 ${formatPrice(item['price'] * 1000)}", // Multiply by 1,000 and format
+                            "\u20A6 ${formatPrice(item['price'] * 1000)}",
                             style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
