@@ -159,7 +159,7 @@ class _BasketPageState extends State<BasketPage> {
                       ],
                     ),
                   ),
-                  Divider(),
+                  Divider(thickness: 0.15,),
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: Column(
