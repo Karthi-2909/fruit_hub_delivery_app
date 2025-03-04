@@ -28,7 +28,11 @@ class _BasketPageState extends State<BasketPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.asset("assets/images/quinoa_fruit_salad.png")
+                        Padding(
+                          padding: const EdgeInsets.only(top: 70),
+                          child: Image.asset(
+                              "assets/images/quinoa_fruit_salad.png"),
+                        )
                       ],
                     ),
                   ),
@@ -58,7 +62,23 @@ class _BasketPageState extends State<BasketPage> {
           Expanded(
             flex: 5,
             child: Container(
-              color: AppColors.secondarycolor,
+              decoration: BoxDecoration(
+                color: AppColors.secondarycolor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primarycolor,
+                    spreadRadius: 10,
+                    blurRadius: 0,
+                    offset: Offset(0, -5),
+                    // Adds shadow effect
+                  ),
+                ],
+              ),
+              //color: AppColors.secondarycolor,
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -80,16 +100,15 @@ class _BasketPageState extends State<BasketPage> {
                             ),
                           ],
                         ),
+                        SizedBox(height: 10),
                         Row(
                           children: [
                             IconButton(
-
                               style: IconButton.styleFrom(
+                                minimumSize: Size(0.1, 0.1),
                                 shape: CircleBorder(
                                   side: BorderSide(width: 1),
-                                  
                                 ),
-                                
                               ),
                               icon: Icon(
                                 Icons.remove,
@@ -101,16 +120,21 @@ class _BasketPageState extends State<BasketPage> {
                                 });
                               },
                             ),
-                            SizedBox(width: 5),
+                            SizedBox(width: 10),
                             Text(
                               quantity.toString(),
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(width: 5,),
+                            SizedBox(
+                              width: 10,
+                            ),
                             CircleAvatar(
-                              backgroundColor: Color.fromARGB(255, 250, 226, 204),
+                              backgroundColor:
+                                  Color.fromARGB(255, 250, 226, 204),
                               child: IconButton(
+                                style: IconButton.styleFrom(
+                                    minimumSize: Size(0.5, 0.5)),
                                 icon: Icon(
                                   Icons.add,
                                   color: AppColors.primarycolor,
@@ -122,12 +146,15 @@ class _BasketPageState extends State<BasketPage> {
                                 },
                               ),
                             ),
-                            SizedBox(width: 120,),
+                            SizedBox(
+                              width: 120,
+                            ),
                             Text('\u20A6  2,000', //nigeria currency symbol code
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,)
-                            
-                            )
-                                ],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ))
+                          ],
                         ),
                       ],
                     ),
@@ -136,42 +163,54 @@ class _BasketPageState extends State<BasketPage> {
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        Stack(
                           children: [
-                            Text(
-                              "One Pack Contains:",
-                              style: TextStyle(
-                                fontSize: 23,
-                                color: Colors.black,
-                                decoration: TextDecoration.underline,
-                                decorationColor: AppColors.primarycolor,
-                                decorationThickness: 2,
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  bottom:
+                                      5), // Adjust space between text and underline
+                              child: Text(
+                                "One Pack Contains:",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  decoration: TextDecoration
+                                      .none, // Remove default underline
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0.1,
+                              child: Container(
+                                width: 205, // Adjust width to match text length
+                                height: 2, // Underline thickness
+                                color: AppColors.primarycolor,
                               ),
                             ),
                           ],
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 20,
                         ),
-                        Row(
-                          children: [
-                            RichText(
-                              textAlign: TextAlign.start,
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                        text:
-                                            "Red Quinoa, Lime, Honey, Blueberries, \n"),
-                                    TextSpan(text: "Strawberries, Mango, Fresh mint.")
-                                  ]),
-                            ),
-                          ],
+                        RichText(
+                          textAlign: TextAlign.start,
+                          text: TextSpan(
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                              children: [
+                                TextSpan(
+                                    text:
+                                        "Red Quinoa, Lime, Honey, Blueberries, \n"),
+                                TextSpan(
+                                    text: "Strawberries, Mango, Fresh mint.")
+                              ]),
                         ),
                       ],
                     ),
@@ -183,7 +222,7 @@ class _BasketPageState extends State<BasketPage> {
                         textAlign: TextAlign.start,
                         text: TextSpan(
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.normal,
                               color: Colors.black,
                             ),
@@ -234,11 +273,10 @@ class _BasketPageState extends State<BasketPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onPressed: () {
-                               Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    OrderPage()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OrderPage()));
                             },
                             child: Text(
                               "Add to basket",
