@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_delivery_app/utils/colors.dart';
 
 class TrackOrderPage extends StatefulWidget {
   const TrackOrderPage({super.key});
@@ -11,82 +12,87 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100), 
-        child: AppBar(
-          backgroundColor: Colors.orange,
-          elevation: 0,
-          leading: Padding(
-            padding: EdgeInsets.only(
-                left: 10, top: 15),
-            child: TextButton.icon(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back, color: Colors.white),
-              label: Text("Go back", style: TextStyle(color: Colors.white)),
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.white24,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+            decoration: BoxDecoration(
+              color: AppColors.primarycolor,
+             
             ),
-          ),
-          title: Padding(
-            padding: EdgeInsets.only(top: 20), 
-            child: Text(
-              "Delivery Status",
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-          ),
-          centerTitle: true,
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  DeliveryStep(
-                    iconPath: "assets/images/order_taken.png",
-                    title: "Order Taken",
-                    isCompleted: true,
-                  ),
-                  DeliveryStep(
-                    iconPath: "assets/images/preparing.png",
-                    title: "Order Is Being Prepared",
-                    isCompleted: true,
-                  ),
-                  DeliveryStep(
-                    iconPath: "assets/images/delivery.png",
-                    title: "Order Is Being Delivered",
-                    subtitle: "Your delivery agent is coming",
-                    isCompleted: false,
-                    showCallButton: true,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        "assets/images/map_placeholder.png",
-                        height: 150,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
+            child: Row(
+              children: [
+                ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      //shape: CircleBorder(),
+                      padding: EdgeInsets.all(12),
+                      backgroundColor: Colors.white, // Adjust color as needed
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                    label: Text(
+                      "Go Back",
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
-                  DeliveryStep(
-                    iconPath: "assets/images/received.png",
-                    title: "Order Received",
-                    isCompleted: true,
+                SizedBox(width: 10),
+                Text(
+                  "Delivery Status",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.secondarycolor,
+                    fontSize: 25,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+
+
+          Expanded(
+            child: ListView(
+              children: [
+                DeliveryStep(
+                  iconPath: "assets/images/order_taken.png",
+                  title: "Order Taken",
+                  isCompleted: true,
+                ),
+                DeliveryStep(
+                  iconPath: "assets/images/preparing.png",
+                  title: "Order Is Being Prepared",
+                  isCompleted: true,
+                ),
+                DeliveryStep(
+                  iconPath: "assets/images/delivery.png",
+                  title: "Order Is Being Delivered",
+                  subtitle: "Your delivery agent is coming",
+                  isCompleted: false,
+                  showCallButton: true,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      "assets/images/map_placeholder.png",
+                      height: 150,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                DeliveryStep(
+                  iconPath: "assets/images/received.png",
+                  title: "Order Received",
+                  isCompleted: true,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
