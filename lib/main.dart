@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Fruit Hub Delivery App',
+      title: 'Fruit Hub',
       home: SplashPage(),
     );
   }
