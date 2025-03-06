@@ -11,9 +11,7 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
-  return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+  return Scaffold(
         body: Column(
           children: [
         
@@ -79,12 +77,13 @@ class _WelcomePageState extends State<WelcomePage> {
                       padding: const EdgeInsets.only(right: 18),
                       child: Text(
                         'We deliver the best and freshest fruit salad in town. Order for a combo today!!!',
-                        style: TextStyle(fontSize: 13, color: Colors.black45,fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 13, color: Colors.black45,fontWeight: FontWeight.w600,),
                       ),
                     ),
                     SizedBox(height: 45),
                     Center(
                       child: SizedBox(
+                        height: 50,
                          width: 320,
                         child: ElevatedButton(
                           onPressed: () {
@@ -103,7 +102,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           ),
                           child: Text(
                             "Let's Continue",
-                            style: TextStyle(fontSize: 16, color: AppColors.secondarycolor),
+                            style: TextStyle(fontSize: 13, color: AppColors.secondarycolor,fontWeight: FontWeight.w600),
                           ),
                         ),
                       ),
@@ -114,7 +113,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }

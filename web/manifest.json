@@ -1,11 +1,11 @@
 {
-    "name": "fruit_hub_delivery_app",
-    "short_name": "fruit_hub_delivery_app",
+    "name": "Fruit Hub",
+    "short_name": "Fruit Hub",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Fruit Hub Delivers Good Products.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
