@@ -1,74 +1,158 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+import 'package:syncfusion_flutter_maps/maps.dart';
 
-class TrackOrderPage extends StatelessWidget {
+class TrackOrderPage extends StatefulWidget {
+  @override
+  State<TrackOrderPage> createState() => _TrackOrderPageState();
+}
+
+class _TrackOrderPageState extends State<TrackOrderPage> {
+  late MapShapeSource dataSource;
+  late MapZoomPanBehavior _zoomPanBehavior;
+
+  @override
+  void initState() {
+    super.initState();
+    dataSource = MapShapeSource.asset(
+      'assets/images/tamil_nadu.json',
+      shapeDataField: 'state',
+    );
+    _zoomPanBehavior = MapZoomPanBehavior();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-         preferredSize: Size.fromHeight(100),
-        child: AppBar(
-          backgroundColor: AppColors.primarycolor,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          title: Text('Delivery Status'),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildStepRow(
-                image: 'assets/images/order_taken.png',
-                iconAsset: '',
-                title: 'Order Taken',
-                isCompleted: true,
-                showIcon: false,
-                backgroundColor:Color(0xfffffaed), // Light red
+      body: Container(
+        color: AppColors.primarycolor, // Background color for the entire screen
+        child: Column(
+          children: [
+            // Top section with the "Go back" button and title
+            Container(
+              height: 110,
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 35,
+                    width: 83,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        backgroundColor: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.arrow_back_ios_new_outlined,
+                              color: Colors.black, size: 15),
+                          Text(
+                            "Go back",
+                            style: TextStyle(color: Colors.black, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  Text(
+                    "Delivery Status",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.secondarycolor,
+                      fontSize: 19,
+                    ),
+                  ),
+                ],
               ),
-              _buildStepConnector(height: 40),
-              _buildStepRow(
-                image: 'assets/images/order_prepare_note.png',
-                iconAsset: '',
-                title: 'Order Is Being Prepared',
-                isCompleted: true,
-                showIcon: false,
-                backgroundColor: Color(0xffefeff5), // Light purple
+            ),
+            // Content container with white background
+            Expanded(
+              child: Container(
+                color: Colors.white, // Background color for the content
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildStepRow(
+                        image: 'assets/images/order_taken.png',
+                        iconAsset: '',
+                        title: 'Order Taken',
+                        isCompleted: true,
+                        showIcon: false,
+                        backgroundColor: Color(0xfffffaed),
+                      ),
+                      _buildStepConnector(height: 40),
+                      _buildStepRow(
+                        image: 'assets/images/order_prepare_note.png',
+                        iconAsset: '',
+                        title: 'Order Is Being Prepared',
+                        isCompleted: true,
+                        showIcon: false,
+                        backgroundColor: Color(0xffefeff5),
+                      ),
+                      _buildStepConnector(height: 40),
+                      _buildStepRow(
+                        image: 'assets/images/delivery_man.png',
+                        iconAsset: '',
+                        title: 'Order Is Being Delivered',
+                        isCompleted: false,
+                        isActive: true,
+                        subtitle: 'Your delivery agent is coming',
+                        showIcon: false,
+                        backgroundColor: Color(0xfffef0f0),
+                        customIcon: Icon(
+                          Icons.phone_in_talk_outlined,
+                          color: Colors.white,
+                          size: 22,
+                        ),
+                        iconBackgroundColor: AppColors.primarycolor,
+                      ),
+                      _buildStepConnector(height: 40),
+                      Container(
+                        height: 180,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: SfMaps(
+                            layers: [
+                              MapTileLayer(
+                                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                zoomPanBehavior: _zoomPanBehavior,
+                                initialFocalLatLng: MapLatLng(11.1271, 78.6569),
+                                initialZoomLevel: 7,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      _buildStepConnector(height: 40),
+                      _buildStepRow(
+                        image: 'assets/images/tick.png',
+                        iconAsset: '',
+                        title: 'Order Received',
+                        isCompleted: true,
+                        isActive: true,
+                        showIcon: false,
+                        backgroundColor: Color(0xffeffef7),
+                        customIcon: Icon(
+                          Icons.more_horiz,
+                          color: AppColors.primarycolor,
+                          size: 28,
+                        ),
+                        iconBackgroundColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              _buildStepConnector(height: 40),
-              _buildStepRow(
-                image: 'assets/images/delivery_man.png',
-                iconAsset: '',
-                title: 'Order Is Being Delivered',
-                isCompleted: false,
-                isActive: true,
-                subtitle: 'Your delivery agent is coming',
-                showIcon: false,
-                backgroundColor: Color(0xfffef0f0), // Light orange
-              ),
-              _buildStepConnector(height: 40),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: _buildMapPlaceholder(),
-              ),
-              _buildStepConnector(height: 40),
-              _buildStepRow(
-                image: 'assets/images/tick.png',
-                iconAsset: '',
-                title: 'Order Received',
-                isCompleted: true,
-                isActive: true,
-                showIcon: false,
-                backgroundColor: Color(0xffeffef7), // Light green
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -82,7 +166,9 @@ class TrackOrderPage extends StatelessWidget {
     bool isActive = false,
     String? subtitle,
     bool showIcon = true,
-    required Color backgroundColor, // New parameter for background color
+    required Color backgroundColor,
+    Icon? customIcon,
+    Color? iconBackgroundColor,
   }) {
     return Row(
       children: [
@@ -93,9 +179,8 @@ class TrackOrderPage extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                color: backgroundColor, // Use the provided background color
-                borderRadius: BorderRadius.circular(8), // Square border radius
-              
+                color: backgroundColor,
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Center(
                 child: Image.asset(
@@ -123,6 +208,26 @@ class TrackOrderPage extends StatelessWidget {
             showIcon: showIcon,
           ),
         ),
+       
+        if (isCompleted && customIcon == null)
+          Icon(
+            Icons.check_circle,
+            color: Colors.green,
+            size: 22,
+          ),
+        // Custom icon for specific steps
+        if (customIcon != null)
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: iconBackgroundColor ?? Colors.transparent,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: customIcon,
+            ),
+          ),
       ],
     );
   }
@@ -143,9 +248,9 @@ class TrackOrderPage extends StatelessWidget {
             height: 40,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: isCompleted 
-                ? Colors.green 
-                : (isActive ? Colors.orange : Colors.grey.shade300),
+              color: isCompleted
+                  ? Colors.green
+                  : (isActive ? Colors.orange : Colors.grey.shade300),
             ),
             child: Center(
               child: Image.asset(
@@ -193,20 +298,39 @@ class TrackOrderPage extends StatelessWidget {
   Widget _buildStepConnector({double height = 50}) {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0),
-      child: Container(
-        width: 2,
-        height: height,
-        color: Colors.grey.shade300,
+      child: CustomPaint(
+        size: Size(2, height), // Width and height of the dotted line
+        painter: _DottedLinePainter(),
       ),
     );
   }
+}
 
-  Widget _buildMapPlaceholder() {
-    return Container(
-      height: 150,
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(10),
-     ),
-);}
+class _DottedLinePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..color = AppColors.primarycolor // Orange color for the dotted line
+      ..strokeWidth = 2
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke; // Corrected this line
+
+    double dashWidth = 1; // Width of each dash
+    double dashSpace = 5; // Space between dashes
+    double startY = 0;
+
+    while (startY < size.height) {
+      canvas.drawLine(
+        Offset(0, startY),
+        Offset(0, startY + dashWidth),
+        paint,
+      );
+      startY += dashWidth + dashSpace;
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
 }

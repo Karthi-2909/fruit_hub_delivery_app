@@ -19,7 +19,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
         elevation: 0,
         toolbarHeight: 70,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 16,top: 30),
+          padding: const EdgeInsets.only(left: 16, top: 30),
           child: Icon(Icons.menu, color: Colors.black),
         ),
         actions: [
@@ -40,10 +40,15 @@ class _HomeRowPageState extends State<HomeRowPage> {
                 ),
                 SizedBox(height: 2), // Reduce spacing
                 Padding(
-                  padding: const EdgeInsets.only(right: 20,),
+                  padding: const EdgeInsets.only(
+                    right: 20,
+                  ),
                   child: Text(
                     "My basket",
-                    style: TextStyle(fontSize: 8.5, color: Colors.black54,fontWeight: FontWeight.w700),
+                    style: TextStyle(
+                        fontSize: 8.5,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w700),
                   ),
                 ),
               ],
@@ -57,15 +62,24 @@ class _HomeRowPageState extends State<HomeRowPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 59,left: 7),
+              padding: const EdgeInsets.only(right: 59, left: 7),
               child: RichText(
                 text: TextSpan(
-                  style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 68, 67, 69)),
+                  style: TextStyle(
+                      fontSize: 18, color: Color.fromARGB(255, 68, 67, 69)),
                   children: [
-                    TextSpan(text: "Hello Tony, ",style: TextStyle(fontSize: 16,)),
+                    TextSpan(
+                        text: "Hello Tony, ",
+                        style: TextStyle(
+                          fontSize: 16,
+                        )),
                     TextSpan(
                       text: " What fruit salad combo do you want today?",
-                      style: TextStyle(fontWeight: FontWeight.w600,wordSpacing:2,fontSize: 15.5,),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        wordSpacing: 2,
+                        fontSize: 15.5,
+                      ),
                     ),
                   ],
                 ),
@@ -83,8 +97,8 @@ class _HomeRowPageState extends State<HomeRowPage> {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
-                        hintStyle:
-                            TextStyle(color: Colors.grey.shade500, fontSize: 12),
+                        hintStyle: TextStyle(
+                            color: Colors.grey.shade500, fontSize: 12),
                         hintText: "Search for fruit salad combos",
                         prefixIcon: Icon(Icons.search, color: Colors.grey),
                         border: InputBorder.none,
@@ -124,20 +138,33 @@ class _HomeRowPageState extends State<HomeRowPage> {
             ),
             SizedBox(height: 50),
             Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Hottest",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text("Popular", style: TextStyle(color: Colors.black45)),
-                  Text("New combo", style: TextStyle(color: Colors.black45)),
-                  Text("Top", style: TextStyle(color: Colors.black45)),
-                ],
-              ),
+  padding: const EdgeInsets.all(10),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Stack(
+        children: [
+          Text(
+            "Hottest",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: Container(
+              width: 30, // Adjust this width to match the length of "Hot"
+              height: 2.5,
+              color: AppColors.primarycolor, // Use your desired color
             ),
+          ),
+        ],
+      ),
+      Text("Popular", style: TextStyle(color: Colors.black45)),
+      Text("New combo", style: TextStyle(color: Colors.black45)),
+      Text("Top", style: TextStyle(color: Colors.black45)),
+    ],
+  ),
+),
             SizedBox(height: 10),
             SizedBox(
               height: 165,
@@ -194,13 +221,12 @@ class FruitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-       elevation: 1,
+      elevation: 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
       ),
       color: backgroundColor,
       child: Container(
-       
         width: 150,
         padding: EdgeInsets.all(10),
         child: Column(
@@ -213,8 +239,9 @@ class FruitCard extends StatelessWidget {
                   child: Image.asset(imagePath, width: imageSize ?? 80),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 85,bottom: 10),
-                  child: Icon(Icons.favorite_border, color: AppColors.primarycolor, size: 16),
+                  padding: const EdgeInsets.only(left: 85, bottom: 10),
+                  child: Icon(Icons.favorite_border,
+                      color: AppColors.primarycolor, size: 16),
                 ),
               ],
             ),
