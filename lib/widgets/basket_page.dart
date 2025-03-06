@@ -40,19 +40,32 @@ class _BasketPageState extends State<BasketPage> {
                 Positioned(
                   top: 30.0,
                   left: 10.0,
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      //shape: CircleBorder(),
-                      padding: EdgeInsets.all(12),
-                      backgroundColor: Colors.white, // Adjust color as needed
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-                    label: Text(
-                      "Go Back",
-                      style: TextStyle(color: Colors.black),
+                  child: SizedBox(
+                    height: 35,
+                    width: 83,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                     
+                        backgroundColor: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize
+                            .min, // Ensures the button wraps content
+                        children: [
+                          Icon(Icons.arrow_back_ios_new_outlined,
+                              color: Colors.black, size: 15),
+                        
+                          Text(
+                            "Go back",
+                            style: TextStyle(color: Colors.black,fontSize: 13),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -65,8 +78,8 @@ class _BasketPageState extends State<BasketPage> {
               decoration: BoxDecoration(
                 color: AppColors.secondarycolor,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(18),
+                  topRight: Radius.circular(18),
                 ),
                 boxShadow: [
                   BoxShadow(
@@ -85,164 +98,187 @@ class _BasketPageState extends State<BasketPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              "Quinoa Fruit Salad",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            IconButton(
-                              style: IconButton.styleFrom(
-                                minimumSize: Size(0.1, 0.1),
-                                shape: CircleBorder(
-                                  side: BorderSide(width: 1),
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.remove,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  if (quantity > 1) quantity--;
-                                });
-                              },
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              quantity.toString(),
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            CircleAvatar(
-                              backgroundColor:
-                                  Color.fromARGB(255, 250, 226, 204),
-                              child: IconButton(
-                                style: IconButton.styleFrom(
-                                    minimumSize: Size(0.5, 0.5)),
-                                icon: Icon(
-                                  Icons.add,
-                                  color: AppColors.primarycolor,
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    quantity++;
-                                  });
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              width: 120,
-                            ),
-                            Text('\u20A6  2,000', //nigeria currency symbol code
+                    padding: const EdgeInsets.only(top: 20,left: 15),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Quinoa Fruit Salad",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ))
-                          ],
-                        ),
-                      ],
+                                  fontSize: 22,
+                                  color: Color.fromARGB(255, 43, 41, 55),
+                                 
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 25),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  height: 30,
+                                  width: 30,
+                                  child: IconButton(
+                                    style: IconButton.styleFrom(
+                                     
+                                      shape: CircleBorder(
+                                        side: BorderSide(width: 1),
+                                      ),
+                                    ),
+                                    icon: Icon(
+                                      Icons.remove,
+                                      color: Colors.black,size: 16,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        if (quantity > 1) quantity--;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                SizedBox(width: 14),
+                                Text(
+                                  quantity.toString(),
+                                  style: TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: 14,
+                                ),
+                                CircleAvatar(
+                                 radius: 16,
+                                  backgroundColor:
+                                      Color.fromARGB(255, 250, 226, 204),
+                                  child: IconButton(
+                                    
+                                    icon: Icon(
+                                      Icons.add_outlined,size: 18,
+                                      color: AppColors.primarycolor,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        quantity++;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 132,
+                                ),
+                                Text('\u20A6 2,000', //nigeria currency symbol code
+                                    style: TextStyle(
+                                      letterSpacing: 1.3,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Color(0xff312d43)
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  Divider(thickness: 0.15,),
+                  Divider(
+                    thickness: 0.15,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  bottom:
-                                      5), // Adjust space between text and underline
-                              child: Text(
-                                "One Pack Contains:",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  decoration: TextDecoration
-                                      .none, // Remove default underline
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    bottom:
+                                        5), // Adjust space between text and underline
+                                child: Text(
+                                  "One Pack Contains:",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xff363346),
+                                    decoration: TextDecoration
+                                        .none, // Remove default underline
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              bottom: 0.1,
-                              child: Container(
-                                width: 205, // Adjust width to match text length
-                                height: 2, // Underline thickness
-                                color: AppColors.primarycolor,
+                              Positioned(
+                                bottom: 0.1,
+                                child: Container(
+                                  width: 205, // Adjust width to match text length
+                                  height: 1.5, // Underline thickness
+                                  color: AppColors.primarycolor,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        RichText(
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          RichText(
+                            textAlign: TextAlign.start,
+                            text: TextSpan(
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                   color: Color(0xff363346),
+                                ),
+                                children: [
+                                  TextSpan(
+                                      text:
+                                          "Red Quinoa, Lime, Honey, Blueberries,Strawberries, \n"),
+                                         
+                                  TextSpan(
+                                      text: "Mango, Fresh mint.")
+                                ]),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Divider(thickness: 0.1,),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16,left: 20,right: 20),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 35),
+                      child: RichText(
                           textAlign: TextAlign.start,
                           text: TextSpan(
                               style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                               
                                 color: Colors.black,
+                                
                               ),
                               children: [
                                 TextSpan(
                                     text:
-                                        "Red Quinoa, Lime, Honey, Blueberries, \n"),
+                                        "If you are looking for a new fruit salad to eat today,"),
                                 TextSpan(
-                                    text: "Strawberries, Mango, Fresh mint.")
-                              ]),
-                        ),
-                      ],
+                                    text:
+                                        " quinoa is the perfect brunch for you. make")
+                              ])),
                     ),
                   ),
-                  Divider(),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: RichText(
-                        textAlign: TextAlign.start,
-                        text: TextSpan(
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                            ),
-                            children: [
-                              TextSpan(
-                                  text:
-                                      "If you are looking for a new fruit salad to eat today,"),
-                              TextSpan(
-                                  text:
-                                      " quinoa is the perfect brunch for you. make")
-                            ])),
-                  ),
                   SizedBox(
-                    height: 10,
+                    height: 55,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 250, 226, 204),
+                        backgroundColor:Color(0xfffef5f1),
                         child: IconButton(
                           icon: Icon(
                             isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -280,7 +316,7 @@ class _BasketPageState extends State<BasketPage> {
                             },
                             child: Text(
                               "Add to basket",
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 14),
                             )),
                       )
                     ],
