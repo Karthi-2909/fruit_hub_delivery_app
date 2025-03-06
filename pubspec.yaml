@@ -16,6 +16,10 @@ dependencies:
   easy_stepper: ^0.8.5+1
   intl: ^0.20.2
   syncfusion_flutter_maps: ^28.2.9
+  another_stepper: ^1.2.2
+  enhance_stepper: ^1.0.1
+  
+
 
 dev_dependencies:
   flutter_test:
@@ -27,7 +31,6 @@ flutter_icons:
   ios: true
   image_path: "assets/images/fruit_hub_logo.png"
   remove_alpha_ios: true
-
   flutter_lints: ^5.0.0
 
 flutter:
@@ -35,6 +38,9 @@ flutter:
   uses-material-design: true
   assets:
      - assets/images/
+     - assets/images/world_map.json
+     - assets/images/tamil_nadu.json
+
   
   # fonts:
   #   - family: Schyler
