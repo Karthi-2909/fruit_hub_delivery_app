@@ -89,7 +89,7 @@ class _WelcomePageState extends State<WelcomePage> {
                          width: 320,
                         child: ElevatedButton(
                           onPressed: () {
-                             Navigator.push(context, MaterialPageRoute(builder: (context)=> AuntheticationPage()));
+                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> AuntheticationPage()));
                                           
                           },
                           style: ElevatedButton.styleFrom(
