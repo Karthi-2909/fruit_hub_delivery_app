@@ -11,9 +11,7 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
-  return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+  return Scaffold(
         body: Column(
           children: [
         
@@ -115,7 +113,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }
