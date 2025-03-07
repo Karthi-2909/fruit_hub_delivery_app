@@ -4,14 +4,14 @@ import 'package:fruit_hub_delivery_app/utils/colors.dart';
 import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
 import 'package:fruit_hub_delivery_app/widgets/order_list.dart';
 
-class BasketPage extends StatefulWidget {
-  const BasketPage({super.key});
+class TropicalPage extends StatefulWidget {
+  const TropicalPage({super.key});
 
   @override
-  State<BasketPage> createState() => _BasketPageState();
+  State<TropicalPage> createState() => _TropicalPageState();
 }
 
-class _BasketPageState extends State<BasketPage> {
+class _TropicalPageState extends State<TropicalPage> {
   bool isFavorite = false;
   int quantity = 1;
   @override
@@ -33,7 +33,7 @@ class _BasketPageState extends State<BasketPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 70),
                           child: Image.asset(
-                              "assets/images/quinoa_fruit_salad.png"),
+                              "assets/images/Tropical_Fruit_Salad.png"),
                         )
                       ],
                     ),
@@ -53,7 +53,7 @@ class _BasketPageState extends State<BasketPage> {
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                           Navigator.pop(context);
+                          Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize
@@ -108,7 +108,7 @@ class _BasketPageState extends State<BasketPage> {
                           Row(
                             children: [
                               Text(
-                                "Quinoa Fruit Salad",
+                                "Tropical Fruit Salad",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 22,
@@ -203,7 +203,7 @@ class _BasketPageState extends State<BasketPage> {
                               Padding(
                                 padding: EdgeInsets.only(
                                     bottom:
-                                        5), // Adjust space between text and underline
+                                        5), 
                                 child: Text(
                                   "One Pack Contains:",
                                   style: TextStyle(
@@ -211,15 +211,15 @@ class _BasketPageState extends State<BasketPage> {
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xff363346),
                                     decoration: TextDecoration
-                                        .none, // Remove default underline
+                                        .none, 
                                   ),
                                 ),
                               ),
                               Positioned(
                                 bottom: 0.1,
                                 child: Container(
-                                  width: 205, // Adjust width to match text length
-                                  height: 1.5, // Underline thickness
+                                  width: 205,
+                                  height: 1.5,
                                   color: AppColors.primarycolor,
                                 ),
                               ),
@@ -239,7 +239,7 @@ class _BasketPageState extends State<BasketPage> {
                                 children: [
                                   TextSpan(
                                       text:
-                                          "Red Quinoa, Lime, Honey, Blueberries,Strawberries, \n"),
+                                          "Tropical, Lime, Honey, Blueberries,Strawberries, \n"),
                                          
                                   TextSpan(
                                       text: "Mango, Fresh mint.")
@@ -269,7 +269,7 @@ class _BasketPageState extends State<BasketPage> {
                                         "If you are looking for a new fruit salad to eat today,"),
                                 TextSpan(
                                     text:
-                                        " quinoa is the perfect brunch for you. make")
+                                        " tropical is the perfect brunch for you. make")
                               ])),
                     ),
                   ),

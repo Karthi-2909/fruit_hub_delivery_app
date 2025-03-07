@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+// ignore: unused_import
+import 'package:fruit_hub_delivery_app/widgets/order_complete_page.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
 class TrackOrderPage extends StatefulWidget {
@@ -25,10 +27,10 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: AppColors.primarycolor, // Background color for the entire screen
+        color: AppColors.primarycolor, 
         child: Column(
           children: [
-            // Top section with the "Go back" button and title
+           
             Container(
               height: 110,
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
@@ -36,14 +38,14 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
                 children: [
                   SizedBox(
                     height: 35,
-                    width: 83,
+                    width: 85,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
+                         Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -208,14 +210,12 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
             showIcon: showIcon,
           ),
         ),
-       
         if (isCompleted && customIcon == null)
           Icon(
             Icons.check_circle,
             color: Colors.green,
             size: 22,
           ),
-        // Custom icon for specific steps
         if (customIcon != null)
           Container(
             width: 40,
@@ -299,7 +299,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0),
       child: CustomPaint(
-        size: Size(2, height), // Width and height of the dotted line
+        size: Size(2, height), 
         painter: _DottedLinePainter(),
       ),
     );
@@ -310,13 +310,13 @@ class _DottedLinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()
-      ..color = AppColors.primarycolor // Orange color for the dotted line
+      ..color = AppColors.primarycolor 
       ..strokeWidth = 2
       ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke; // Corrected this line
+      ..style = PaintingStyle.stroke;
 
-    double dashWidth = 1; // Width of each dash
-    double dashSpace = 5; // Space between dashes
+    double dashWidth = 1; 
+    double dashSpace = 5;
     double startY = 0;
 
     while (startY < size.height) {
