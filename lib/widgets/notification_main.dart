@@ -83,11 +83,11 @@ class _NotificationMainState extends State<NotificationMain> with SingleTickerPr
               child: Column(
                 children: [
                   SizedBox(height: 10),
-                  MessagePage(profile: Image.asset("assets/images/Royal_Parvej.jpg"), time: "19:37\n", text: "Royal Parvej\n\n", textColor: Colors.black, span: 'Sounds awesome!',msgColor: Colors.black,count: '1',circle: AppColors.primarycolor,timeColor: Colors.black,),
-                  MessagePage(profile: Image.asset("assets/images/Cameron_Williamson.jpg"), time: "19:37\n", text: "Cameron Williamson\n\n", textColor: Colors.black, span: 'Ok, just hurry up little bit...😊',msgColor: Colors.black,count: '2',circle: AppColors.primarycolor,timeColor: Colors.black,),
-                  MessagePage(profile: Image.asset("assets/images/Ralph_Edwards.jpg"), time: "19:37", text: "Ralph Edwards\n\n", textColor: Colors.black, span: 'Thanks dude.',msgColor: Colors.grey,count: '',circle: Colors.transparent,timeColor: Colors.grey,),
-                  MessagePage(profile: Image.asset("assets/images/Cody_Fisher.jpg"), time: "19:37", text: "Cody Fisher\n\n", textColor: Colors.black, span: 'How is going...?',msgColor: Colors.grey,count: '',circle: Colors.transparent,timeColor: Colors.grey,),
-                  MessagePage(profile: Image.asset("assets/images/Eleanor_Pena.jpg"), time: "19:37", text: "Eleanor Pena\n\n", textColor: Colors.black, span: 'Thanks for the awesome fruit man...!',msgColor: Colors.grey,count: '',circle: Colors.transparent,timeColor: Colors.grey,)
+                  MessagePage(profile: Image.asset("assets/images/Royal_Parvej.jpg"), time: "19:37", text: "Royal Parvej", textColor: Colors.black, span: 'Sounds awesome!',msgColor: Colors.black,count: '1',circle: AppColors.primarycolor,timeColor: Colors.black,),
+                  MessagePage(profile: Image.asset("assets/images/Cameron_Williamson.jpg"), time: "19:37", text: "Cameron Williamson", textColor: Colors.black, span: 'Ok, just hurry up little bit...😊',msgColor: Colors.black,count: '2',circle: AppColors.primarycolor,timeColor: Colors.black,),
+                  MessagePage(profile: Image.asset("assets/images/Ralph_Edwards.jpg"), time: "19:37", text: "Ralph Edwards", textColor: Colors.black, span: 'Thanks dude.',msgColor: Colors.grey,count: '',circle: Colors.transparent,timeColor: Colors.grey,),
+                  MessagePage(profile: Image.asset("assets/images/Cody_Fisher.jpg"), time: "19:37", text: "Cody Fisher", textColor: Colors.black, span: 'How is going...?',msgColor: Colors.grey,count: '',circle: Colors.transparent,timeColor: Colors.grey,),
+                  MessagePage(profile: Image.asset("assets/images/Eleanor_Pena.jpg"), time: "19:37", text: "Eleanor Pena", textColor: Colors.black, span: 'Thanks for the awesome fruit man...!',msgColor: Colors.grey,count: '',circle: Colors.transparent,timeColor: Colors.grey,)
                  // MessagePage(profile: profile, time: time, text: text, textColor: textColor, span: span, msgColor: msgColor, count: count, circle: circle)
                 ],
               ),
