@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+// ignore: unused_import
 import 'package:fruit_hub_delivery_app/widgets/basket_page.dart';
 import 'package:fruit_hub_delivery_app/widgets/complete_details.dart';
 import 'package:intl/intl.dart';
