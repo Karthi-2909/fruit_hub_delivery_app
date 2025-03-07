@@ -32,7 +32,9 @@ class _AuntheticationPageState extends State<AuntheticationPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           // Primary Theme Container with Images
