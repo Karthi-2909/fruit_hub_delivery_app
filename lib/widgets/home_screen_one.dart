@@ -30,7 +30,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 25),
             child: IconButton(
               icon: Icon(
                 Icons.person,
@@ -45,7 +45,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
           ),
           // SizedBox(width: 2),
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 25),
             child: IconButton(
               icon: Icon(
                 Icons.notifications,
@@ -60,19 +60,19 @@ class _HomeRowPageState extends State<HomeRowPage> {
               },
             ),
           ),
-          // SizedBox(width: 2,),
+           SizedBox(width: 7,),
 
 
           Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 13),
+                  padding: const EdgeInsets.only(right: 25,bottom: 12),
                   child: InkWell(
-                     onTap: () => Navigator.pushReplacement(
+                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => OrdersPage(),
@@ -87,18 +87,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
                   ),
                 ),
                 SizedBox(height: 2), 
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: 20,
-                  ),
-                  child: Text(
-                    "My basket",
-                    style: TextStyle(
-                        fontSize: 8.5,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
+            
               ],
             ),
           ),
@@ -220,7 +209,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   InkWell(
-                    onTap: () => Navigator.pushReplacement(
+                    onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => BasketPage(),
@@ -235,7 +224,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
                   ),
                   SizedBox(width: 4),
                   InkWell(
-                    onTap: () => Navigator.pushReplacement(
+                    onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => TropicalPage(),
@@ -251,7 +240,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
                   ),
                   // SizedBox(width: 1),
                   InkWell(
-                    onTap: () => Navigator.pushReplacement(
+                    onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => MellonPage(),
