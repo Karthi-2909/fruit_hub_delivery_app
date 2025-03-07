@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
 import 'package:fruit_hub_delivery_app/widgets/basket_page.dart';
+import 'package:fruit_hub_delivery_app/widgets/mellon_salad.dart';
+import 'package:fruit_hub_delivery_app/widgets/tropical_salad.dart';
 
 class HomeRowPage extends StatefulWidget {
   const HomeRowPage({super.key});
@@ -172,7 +174,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   InkWell(
-                    onTap: () => Navigator.push(
+                    onTap: () => Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => BasketPage(),
@@ -182,22 +184,41 @@ class _HomeRowPageState extends State<HomeRowPage> {
                         "assets/images/breakfast_quinoa_red_fruit_salad.png",
                         "Quinoa fruit salad",
                         "₦ 10,000",
-                        Color(0xfffffaec)),
+                        Color(0xfffffaec),
+                         imageSize: 70),
                   ),
                   SizedBox(width: 4),
-                  FruitCard(
-                    "assets/images/Tropical_Fruit_Salad.png",
-                    "Tropical fruit salad",
-                    "₦ 10,000",
-                    Color(0xfffef0f0),
-                    imageSize: 250,
+                  InkWell(
+                    onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TropicalPage(),
+                      ),
+                    ),
+                    child: FruitCard(
+                      "assets/images/tropical_fruit.png",
+                      "Tropical fruit salad",
+                      "₦ 10,000",
+                      Color(0xfffef0f0),
+                      imageSize: 170,
+                    ),
                   ),
                   // SizedBox(width: 1),
-                  FruitCard(
-                      "assets/images/breakfast_quinoa_red_fruit_salad.png",
-                      "Mellon fruit salad",
-                      "₦ 10,000",
-                      Color(0xfffffaec)),
+                  InkWell(
+                    onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MellonPage(),
+                      ),
+                    ),
+                    child: FruitCard(
+                        "assets/images/BerryWorld.png",
+                        "Mellon fruit salad",
+                        "₦ 10,000",
+                        Color(0xfffffaec),imageSize: 110,
+                        ),
+                  ),
+                      
                 ],
               ),
             ),
