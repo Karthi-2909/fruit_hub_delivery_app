@@ -88,7 +88,7 @@ class _NotificationPageState extends State<NotificationPage> {
             ],
           ),
         ),
-        const Divider(thickness: 1),
+        const Divider(thickness: 0.5),
       ],
     );
   }

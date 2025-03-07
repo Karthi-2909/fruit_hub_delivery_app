@@ -54,67 +54,104 @@ class _MessagePageState extends State<MessagePage> {
 
               // Fix: Wrap TextSpan inside RichText
               Expanded(
-                
-                child: RichText(
-                  text: TextSpan(
-                    text: widget.text,
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: widget.textColor,
-                        fontWeight: FontWeight.bold),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: widget.span,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                          color: widget.msgColor,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.text,
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: widget.textColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 3,),
+                    Text(
+                      widget.span,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                        color: widget.msgColor,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
 
               const SizedBox(width: 20),
-
-              Container(
-                //alignment: Alignment.centerLeft,
-                child: RichText(
-                  text: TextSpan(
-                    text: widget.time,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(widget.time,
                     style: TextStyle(
                       fontSize: 14,
                       color: widget.timeColor,
-                    ),
-                    children: <InlineSpan>[
-                      WidgetSpan(
-                        alignment: PlaceholderAlignment .middle, // Aligns it properly with text
-                        child: Container(
-                          margin: EdgeInsets.only(left: 5), // Adds spacing between time and count
+                    ),),
+                  Container(
+                     margin: EdgeInsets.only(
+                              left: 5,
+                              top: 5), // Adds spacing between time and count
                           padding: EdgeInsets.symmetric(
                               horizontal: 6,
                               vertical: 2), // Adds padding inside the box
-                          decoration: BoxDecoration(
+                    decoration: BoxDecoration(
                               color: widget.circle, // Background color
 
                               shape: BoxShape.circle // Rounded edges
                               ),
-                          child: Text(
-                            widget.count,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                              color: AppColors
-                                  .secondarycolor, // Text color inside the box
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                    child: Text(
+                      
+                      widget.count,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors
+                                    .secondarycolor, // Text color inside the box
+                              ),),
+                  )
+
+                ],
               ),
+
+              // Container(
+              //   child: RichText(
+                  
+              //     text: TextSpan(
+              //       text: widget.time,
+              //       style: TextStyle(
+              //         fontSize: 14,
+              //         color: widget.timeColor,
+              //       ),
+              //       children: <InlineSpan>[
+              //         WidgetSpan(
+              //           alignment: PlaceholderAlignment
+              //               .middle, // Aligns it properly with text
+              //           child: Container(
+              //             margin: EdgeInsets.only(
+              //                 left: 5,
+              //                 top: 5), // Adds spacing between time and count
+              //             padding: EdgeInsets.symmetric(
+              //                 horizontal: 6,
+              //                 vertical: 2), // Adds padding inside the box
+              //             decoration: BoxDecoration(
+              //                 color: widget.circle, // Background color
+
+              //                 shape: BoxShape.circle // Rounded edges
+              //                 ),
+              //             child: Text(
+              //               widget.count,
+              //               style: TextStyle(
+              //                 fontSize: 14,
+              //                 fontWeight: FontWeight.normal,
+              //                 color: AppColors
+              //                     .secondarycolor, // Text color inside the box
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
