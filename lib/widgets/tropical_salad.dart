@@ -52,7 +52,7 @@ class _TropicalPageState extends State<TropicalPage> {
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>HomeRowPage()));
+                          Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize
@@ -202,7 +202,7 @@ class _TropicalPageState extends State<TropicalPage> {
                               Padding(
                                 padding: EdgeInsets.only(
                                     bottom:
-                                        5), // Adjust space between text and underline
+                                        5), 
                                 child: Text(
                                   "One Pack Contains:",
                                   style: TextStyle(
@@ -210,15 +210,15 @@ class _TropicalPageState extends State<TropicalPage> {
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xff363346),
                                     decoration: TextDecoration
-                                        .none, // Remove default underline
+                                        .none, 
                                   ),
                                 ),
                               ),
                               Positioned(
                                 bottom: 0.1,
                                 child: Container(
-                                  width: 205, // Adjust width to match text length
-                                  height: 1.5, // Underline thickness
+                                  width: 205,
+                                  height: 1.5,
                                   color: AppColors.primarycolor,
                                 ),
                               ),
@@ -310,7 +310,7 @@ class _TropicalPageState extends State<TropicalPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onPressed: () {
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => OrderPage()));

@@ -44,7 +44,7 @@ class _OrdersPageState extends State<OrdersPage> {
       items: 3,
       status: 'Completed',
       imageUrl: 'assets/images/tropical_fruit.png',
-      category: 'Fruit',
+      category: 'Order',
     ),
     Order(
       restaurant: 'Melon salad',
@@ -55,7 +55,7 @@ class _OrdersPageState extends State<OrdersPage> {
       items: 2,
       status: 'Completed',
       imageUrl: 'assets/images/Glowing_Berry_Fruit_Salad.png',
-      category: 'Fruit',
+      category: 'Order',
     ),
     Order(
       restaurant: 'Quinoa salad',
@@ -66,7 +66,7 @@ class _OrdersPageState extends State<OrdersPage> {
       items: 1,
       status: 'Canceled',
       imageUrl: 'assets/images/breakfast_quinoa_red_fruit_salad.png',
-      category: 'Fruit',
+      category: 'Order',
     ),
   ];
 
@@ -81,7 +81,7 @@ class _OrdersPageState extends State<OrdersPage> {
               height: 110,
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
               decoration: BoxDecoration(
-                color: AppColors.primarycolor, 
+                color: AppColors.primarycolor,
               ),
               child: Row(
                 children: [
@@ -90,14 +90,16 @@ class _OrdersPageState extends State<OrdersPage> {
                     width: 85,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                         Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) => HomeRowPage()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    HomeRowPage()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -124,10 +126,10 @@ class _OrdersPageState extends State<OrdersPage> {
                 ],
               ),
             ),
-           
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 itemCount: _orders.length,
                 itemBuilder: (context, index) {
                   final order = _orders[index];
@@ -148,7 +150,7 @@ class _OrdersPageState extends State<OrdersPage> {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0,top: 10),
+      padding: const EdgeInsets.only(bottom: 16.0, top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -157,10 +159,9 @@ class _OrdersPageState extends State<OrdersPage> {
               Text(
                 order.category,
                 style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff454754)
-                ),
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff454754)),
               ),
               const SizedBox(width: 20),
               Text(
@@ -183,7 +184,6 @@ class _OrdersPageState extends State<OrdersPage> {
               padding: const EdgeInsets.all(12.0),
               child: Row(
                 children: [
-                  
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
@@ -191,15 +191,18 @@ class _OrdersPageState extends State<OrdersPage> {
                       width: 60,
                       height: 60,
                       fit: BoxFit.cover,
-                 
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           width: 60,
                           height: 60,
                           color: Colors.grey.shade200,
                           child: order.category == 'Food'
-                              ? Image.network('https://via.placeholder.com/60x60?text=Food', fit: BoxFit.cover)
-                              : Image.network('https://via.placeholder.com/60x60?text=Drink', fit: BoxFit.cover),
+                              ? Image.network(
+                                  'https://via.placeholder.com/60x60?text=Food',
+                                  fit: BoxFit.cover)
+                              : Image.network(
+                                  'https://via.placeholder.com/60x60?text=Drink',
+                                  fit: BoxFit.cover),
                         );
                       },
                     ),
@@ -224,23 +227,32 @@ class _OrdersPageState extends State<OrdersPage> {
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey.shade500,
+                                decoration: TextDecoration.underline,
+                                decorationThickness:
+                                    1, 
+                                decorationColor:
+                                    Color(0xffa3a4aa),
+                                height:
+                                    1.2,
                               ),
                             ),
                           ],
                         ),
                         const SizedBox(height: 4),
                         Row(
-                     
                           children: [
                             Text(
-                              '\$${order.price.toStringAsFixed(2)}',
+                              '₦ ${order.price.toStringAsFixed(2)}',
                               style: const TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             SizedBox(width: 8),
-                            const Text('|',style: TextStyle(color: Color(0xffccced6) ),),
+                            const Text(
+                              '|',
+                              style: TextStyle(color: Color(0xffccced6)),
+                            ),
                             SizedBox(width: 8),
                             Row(
                               children: [
@@ -273,12 +285,12 @@ class _OrdersPageState extends State<OrdersPage> {
           const SizedBox(height: 8),
           // Buttons
           Padding(
-            padding: const EdgeInsets.only(left: 10,right: 10),
+            padding: const EdgeInsets.only(left: 10, right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                   height: 33,
+                  height: 33,
                   width: 130,
                   child: OutlinedButton(
                     onPressed: () {},
@@ -289,12 +301,14 @@ class _OrdersPageState extends State<OrdersPage> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text('Rate',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold)),
+                    child: const Text('Rate',
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.bold)),
                   ),
                 ),
                 // const SizedBox(width: 30),
                 SizedBox(
-                   height: 33,
+                  height: 33,
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {},
@@ -305,13 +319,16 @@ class _OrdersPageState extends State<OrdersPage> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text('Re-Order',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),),
+                    child: const Text(
+                      'Re-Order',
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          
         ],
       ),
     );

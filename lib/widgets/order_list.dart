@@ -75,10 +75,7 @@ class _OrderPageState extends State<OrderPage> {
                       backgroundColor: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) => BasketPage()));
+                       Navigator.pop(context);
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

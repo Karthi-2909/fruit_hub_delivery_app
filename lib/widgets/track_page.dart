@@ -44,7 +44,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>OrderCompletePage()));;
+                         Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.min,

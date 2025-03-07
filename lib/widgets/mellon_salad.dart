@@ -52,7 +52,7 @@ class _MellonPageState extends State<MellonPage> {
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>HomeRowPage()));
+                          Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize
@@ -310,7 +310,7 @@ class _MellonPageState extends State<MellonPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onPressed: () {
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => OrderPage()));
