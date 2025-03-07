@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+// ignore: unused_import
 import 'package:fruit_hub_delivery_app/widgets/order_complete_page.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
@@ -44,7 +45,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>OrderCompletePage()));;
+                         Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.min,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+// ignore: unused_import
 import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
 import 'package:fruit_hub_delivery_app/widgets/order_list.dart';
 
@@ -52,7 +53,7 @@ class _MellonPageState extends State<MellonPage> {
                         backgroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>HomeRowPage()));
+                          Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize
@@ -310,7 +311,7 @@ class _MellonPageState extends State<MellonPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onPressed: () {
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => OrderPage()));

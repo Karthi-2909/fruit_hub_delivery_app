@@ -7,7 +7,7 @@ class NotificationPage extends StatefulWidget {
   final String text;
   final Color textColor;
   final String span;
-  final double imageSize; // Added image size parameter
+  final double imageSize; 
 
   const NotificationPage({
     super.key,
@@ -16,7 +16,7 @@ class NotificationPage extends StatefulWidget {
     required this.text,
     required this.textColor,
     required this.span,
-    this.imageSize = 50.0, // Default size
+    this.imageSize = 50.0,
   });
 
   @override
@@ -37,12 +37,11 @@ class _NotificationPageState extends State<NotificationPage> {
                 width: widget.imageSize,
                 height: widget.imageSize,
                 child: CircleAvatar(
-                  backgroundImage: widget.profile.image, // Fix: Use ImageProvider
+                  backgroundImage: widget.profile.image, 
                 ),
               ),
               const SizedBox(width: 10),
-              
-              // Fix: Wrap TextSpan inside RichText
+   
               Expanded(
                 child: RichText(
                   text: TextSpan(

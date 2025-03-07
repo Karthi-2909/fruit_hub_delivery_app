@@ -51,7 +51,7 @@ class _OrderCompletePageState extends State<OrderCompletePage> {
               height: 50,
               width: 120,
               child: ElevatedButton(onPressed: (){
-                 Navigator.pushReplacement(
+                 Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
@@ -77,7 +77,7 @@ class _OrderCompletePageState extends State<OrderCompletePage> {
                 height: 50,
                 width: 160,
                 child: OutlinedButton(onPressed: (){
-                   Navigator.pushReplacement(
+                   Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>

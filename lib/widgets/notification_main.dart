@@ -37,6 +37,7 @@ class _NotificationMainState extends State<NotificationMain> with SingleTickerPr
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           foregroundColor: AppColors.secondarycolor,
           backgroundColor: AppColors.primarycolor,
