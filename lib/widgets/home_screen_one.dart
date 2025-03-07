@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
 import 'package:fruit_hub_delivery_app/widgets/basket_page.dart';
 import 'package:fruit_hub_delivery_app/widgets/mellon_salad.dart';
+import 'package:fruit_hub_delivery_app/widgets/myhistory.dart';
 import 'package:fruit_hub_delivery_app/widgets/tropical_salad.dart';
 
 class HomeRowPage extends StatefulWidget {
@@ -33,14 +34,22 @@ class _HomeRowPageState extends State<HomeRowPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 13),
-                  child: Image.asset(
-                    "assets/images/shopping_basket.png",
-                    fit: BoxFit.contain,
-                    width: 23,
-                    height: 23,
+                  child: InkWell(
+                     onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OrderHistoryPage(),
+                      ),
+                    ),
+                    child: Image.asset(
+                      "assets/images/shopping_basket.png",
+                      fit: BoxFit.contain,
+                      width: 23,
+                      height: 23,
+                    ),
                   ),
                 ),
-                SizedBox(height: 2), // Reduce spacing
+                SizedBox(height: 2), 
                 Padding(
                   padding: const EdgeInsets.only(
                     right: 20,
