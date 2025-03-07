@@ -3,6 +3,8 @@ import 'package:fruit_hub_delivery_app/utils/colors.dart';
 import 'package:fruit_hub_delivery_app/widgets/basket_page.dart';
 import 'package:fruit_hub_delivery_app/widgets/mellon_salad.dart';
 import 'package:fruit_hub_delivery_app/widgets/myhistory.dart';
+import 'package:fruit_hub_delivery_app/widgets/notification_main.dart';
+import 'package:fruit_hub_delivery_app/widgets/profile_page.dart';
 import 'package:fruit_hub_delivery_app/widgets/tropical_salad.dart';
 
 class HomeRowPage extends StatefulWidget {
@@ -18,6 +20,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 70,
@@ -26,6 +29,40 @@ class _HomeRowPageState extends State<HomeRowPage> {
           child: Icon(Icons.menu, color: Colors.black),
         ),
         actions: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: IconButton(
+              icon: Icon(
+                Icons.person,
+                color: AppColors.primarycolor,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
+            ),
+          ),
+          // SizedBox(width: 2),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: IconButton(
+              icon: Icon(
+                Icons.notifications,
+                color: AppColors.primarycolor,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NotificationMain()));
+              },
+            ),
+          ),
+          // SizedBox(width: 2,),
+
+
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: Column(
@@ -38,7 +75,7 @@ class _HomeRowPageState extends State<HomeRowPage> {
                      onTap: () => Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => OrderHistoryPage(),
+                        builder: (context) => OrdersPage(),
                       ),
                     ),
                     child: Image.asset(
@@ -221,10 +258,10 @@ class _HomeRowPageState extends State<HomeRowPage> {
                       ),
                     ),
                     child: FruitCard(
-                        "assets/images/BerryWorld.png",
+                        "assets/images/Glowing_Berry_Fruit_Salad.png",
                         "Mellon fruit salad",
                         "₦ 10,000",
-                        Color(0xfffffaec),imageSize: 110,
+                        Color(0xfffffaec),imageSize: 70,
                         ),
                   ),
                       

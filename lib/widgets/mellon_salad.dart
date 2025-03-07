@@ -32,7 +32,7 @@ class _MellonPageState extends State<MellonPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 70),
                           child: Image.asset(
-                              "assets/images/BerryWorld _menu.png",),
+                              "assets/images/Glowing_Berry_Fruit_Salad.png",),
                         )
                       ],
                     ),
