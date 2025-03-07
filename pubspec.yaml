@@ -18,6 +18,7 @@ dependencies:
   syncfusion_flutter_maps: ^28.2.9
   another_stepper: ^1.2.2
   enhance_stepper: ^1.0.1
+  carousel_slider: ^5.0.0
   
 
 

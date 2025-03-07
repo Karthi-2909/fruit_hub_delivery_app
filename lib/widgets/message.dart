@@ -111,47 +111,6 @@ class _MessagePageState extends State<MessagePage> {
 
                 ],
               ),
-
-              // Container(
-              //   child: RichText(
-                  
-              //     text: TextSpan(
-              //       text: widget.time,
-              //       style: TextStyle(
-              //         fontSize: 14,
-              //         color: widget.timeColor,
-              //       ),
-              //       children: <InlineSpan>[
-              //         WidgetSpan(
-              //           alignment: PlaceholderAlignment
-              //               .middle, // Aligns it properly with text
-              //           child: Container(
-              //             margin: EdgeInsets.only(
-              //                 left: 5,
-              //                 top: 5), // Adds spacing between time and count
-              //             padding: EdgeInsets.symmetric(
-              //                 horizontal: 6,
-              //                 vertical: 2), // Adds padding inside the box
-              //             decoration: BoxDecoration(
-              //                 color: widget.circle, // Background color
-
-              //                 shape: BoxShape.circle // Rounded edges
-              //                 ),
-              //             child: Text(
-              //               widget.count,
-              //               style: TextStyle(
-              //                 fontSize: 14,
-              //                 fontWeight: FontWeight.normal,
-              //                 color: AppColors
-              //                     .secondarycolor, // Text color inside the box
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
