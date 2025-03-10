@@ -76,7 +76,7 @@ class _OrderPageState extends State<OrderPage> {
                       backgroundColor: Colors.white,
                     ),
                     onPressed: () {
-                       Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -190,18 +190,28 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                     onPressed: () {
                       showModalBottomSheet(
-                        builder: (context) {
-                          return DeliveryAddressModal(
-                            nameController: _nameController,
-                            numberController: _numberController,
-                          );
-                        },
                         context: context,
-                        isScrollControlled: true,
+                        isScrollControlled:
+                            true, 
+                        backgroundColor: Colors
+                            .transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(20)),
                         ),
+                        builder: (context) {
+                          return Padding(
+                            padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context)
+                                  .viewInsets
+                                  .bottom, 
+                            ),
+                            child: DeliveryAddressModal(
+                              nameController: _nameController,
+                              numberController: _numberController,
+                            ),
+                          );
+                        },
                       );
                     },
                     child: Text(

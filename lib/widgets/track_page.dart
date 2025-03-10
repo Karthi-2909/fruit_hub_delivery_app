@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_delivery_app/utils/colors.dart';
+import 'package:fruit_hub_delivery_app/widgets/home_screen_one.dart';
 // ignore: unused_import
 import 'package:fruit_hub_delivery_app/widgets/order_complete_page.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
@@ -7,11 +8,13 @@ import 'package:syncfusion_flutter_maps/maps.dart';
 class TrackOrderPage extends StatefulWidget {
   @override
   State<TrackOrderPage> createState() => _TrackOrderPageState();
+  
 }
 
 class _TrackOrderPageState extends State<TrackOrderPage> {
   late MapShapeSource dataSource;
   late MapZoomPanBehavior _zoomPanBehavior;
+  
 
   @override
   void initState() {
@@ -25,136 +28,155 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: AppColors.primarycolor, 
-        child: Column(
-          children: [
-           
-            Container(
-              height: 110,
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-              child: Row(
-                children: [
-                  SizedBox(
-                    height: 35,
-                    width: 85,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        backgroundColor: Colors.white,
-                      ),
-                      onPressed: () {
-                         Navigator.pop(context);
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.arrow_back_ios_new_outlined,
-                              color: Colors.black, size: 15),
-                          Text(
-                            "Go back",
-                            style: TextStyle(color: Colors.black, fontSize: 13),
-                          ),
-                        ],
+    
+    return PopScope(
+      canPop: false, 
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+         
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => HomeRowPage()),
+            (route) => false,
+          );
+        }
+      },
+      child: Scaffold(
+        body: Container(
+          color: AppColors.primarycolor, 
+          child: Column(
+            children: [
+             
+              Container(
+                height: 110,
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 35,
+                      width: 85,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          backgroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                         Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeRowPage()),
+                        (route) =>
+                            false, 
+                      );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.arrow_back_ios_new_outlined,
+                                color: Colors.black, size: 15),
+                            Text(
+                              "Go back",
+                              style: TextStyle(color: Colors.black, fontSize: 13),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 30),
-                  Text(
-                    "Delivery Status",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.secondarycolor,
-                      fontSize: 19,
+                    SizedBox(width: 30),
+                    Text(
+                      "Delivery Status",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.secondarycolor,
+                        fontSize: 19,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            // Content container with white background
-            Expanded(
-              child: Container(
-                color: Colors.white, // Background color for the content
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildStepRow(
-                        image: 'assets/images/order_taken.png',
-                        iconAsset: '',
-                        title: 'Order Taken',
-                        isCompleted: true,
-                        showIcon: false,
-                        backgroundColor: Color(0xfffffaed),
-                      ),
-                      _buildStepConnector(height: 40),
-                      _buildStepRow(
-                        image: 'assets/images/order_prepare_note.png',
-                        iconAsset: '',
-                        title: 'Order Is Being Prepared',
-                        isCompleted: true,
-                        showIcon: false,
-                        backgroundColor: Color(0xffefeff5),
-                      ),
-                      _buildStepConnector(height: 40),
-                      _buildStepRow(
-                        image: 'assets/images/delivery_man.png',
-                        iconAsset: '',
-                        title: 'Order Is Being Delivered',
-                        isCompleted: false,
-                        isActive: true,
-                        subtitle: 'Your delivery agent is coming',
-                        showIcon: false,
-                        backgroundColor: Color(0xfffef0f0),
-                        customIcon: Icon(
-                          Icons.phone_in_talk_outlined,
-                          color: Colors.white,
-                          size: 22,
+              // Content container with white background
+              Expanded(
+                child: Container(
+                  color: Colors.white, // Background color for the content
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildStepRow(
+                          image: 'assets/images/order_taken.png',
+                          iconAsset: '',
+                          title: 'Order Taken',
+                          isCompleted: true,
+                          showIcon: false,
+                          backgroundColor: Color(0xfffffaed),
                         ),
-                        iconBackgroundColor: AppColors.primarycolor,
-                      ),
-                      _buildStepConnector(height: 40),
-                      Container(
-                        height: 180,
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: SfMaps(
-                            layers: [
-                              MapTileLayer(
-                                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                                zoomPanBehavior: _zoomPanBehavior,
-                                initialFocalLatLng: MapLatLng(11.1271, 78.6569),
-                                initialZoomLevel: 7,
-                              ),
-                            ],
+                        _buildStepConnector(height: 40),
+                        _buildStepRow(
+                          image: 'assets/images/order_prepare_note.png',
+                          iconAsset: '',
+                          title: 'Order Is Being Prepared',
+                          isCompleted: true,
+                          showIcon: false,
+                          backgroundColor: Color(0xffefeff5),
+                        ),
+                        _buildStepConnector(height: 40),
+                        _buildStepRow(
+                          image: 'assets/images/delivery_man.png',
+                          iconAsset: '',
+                          title: 'Order Is Being Delivered',
+                          isCompleted: false,
+                          isActive: true,
+                          subtitle: 'Your delivery agent is coming',
+                          showIcon: false,
+                          backgroundColor: Color(0xfffef0f0),
+                          customIcon: Icon(
+                            Icons.phone_in_talk_outlined,
+                            color: Colors.white,
+                            size: 22,
+                          ),
+                          iconBackgroundColor: AppColors.primarycolor,
+                        ),
+                        _buildStepConnector(height: 40),
+                        Container(
+                          height: 180,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: SfMaps(
+                              layers: [
+                                MapTileLayer(
+                                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                  zoomPanBehavior: _zoomPanBehavior,
+                                  initialFocalLatLng: MapLatLng(11.1271, 78.6569),
+                                  initialZoomLevel: 7,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      _buildStepConnector(height: 40),
-                      _buildStepRow(
-                        image: 'assets/images/tick.png',
-                        iconAsset: '',
-                        title: 'Order Received',
-                        isCompleted: true,
-                        isActive: true,
-                        showIcon: false,
-                        backgroundColor: Color(0xffeffef7),
-                        customIcon: Icon(
-                          Icons.more_horiz,
-                          color: AppColors.primarycolor,
-                          size: 28,
+                        _buildStepConnector(height: 40),
+                        _buildStepRow(
+                          image: 'assets/images/tick.png',
+                          iconAsset: '',
+                          title: 'Order Received',
+                          isCompleted: true,
+                          isActive: true,
+                          showIcon: false,
+                          backgroundColor: Color(0xffeffef7),
+                          customIcon: Icon(
+                            Icons.more_horiz,
+                            color: AppColors.primarycolor,
+                            size: 28,
+                          ),
+                          iconBackgroundColor: Colors.white,
                         ),
-                        iconBackgroundColor: Colors.white,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
