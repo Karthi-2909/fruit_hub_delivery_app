@@ -133,12 +133,13 @@ class _ProfilePageState extends State<ProfilePage> {
         
         leading: Icon(Icons.logout, color: Colors.red),
         title: InkWell(
-          onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AuntheticationPage(),
-                      ),
-                    ),
+          onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => AuntheticationPage()),
+                        (route) => false,
+                      );
+                    },
           child: Text("Log Out",
               style: TextStyle(
                   fontSize: 16, fontWeight: FontWeight.w500, color: Colors.red)),

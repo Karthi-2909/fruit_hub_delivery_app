@@ -29,7 +29,7 @@ class _DeliveryAddressModalState extends State<DeliveryAddressModal> {
           decoration: BoxDecoration(
             color: Colors.white, // Changed to white
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), 
+              topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
             ),
           ),
@@ -44,7 +44,7 @@ class _DeliveryAddressModalState extends State<DeliveryAddressModal> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                      color: Color(0xff3c365b),
+                    color: Color(0xff3c365b),
                   ),
                 ),
                 SizedBox(height: 15),
@@ -52,7 +52,10 @@ class _DeliveryAddressModalState extends State<DeliveryAddressModal> {
                   controller: widget.nameController,
                   decoration: InputDecoration(
                     hintText: "10th Avenue, Lekki, Lagos State",
-                    hintStyle: TextStyle(color: Colors.grey.shade500,fontSize: 14,),
+                    hintStyle: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14,
+                    ),
                     filled: true,
                     fillColor: Color(0xfff3f1f1), // Same as PaymentModal
                     contentPadding:
@@ -78,7 +81,10 @@ class _DeliveryAddressModalState extends State<DeliveryAddressModal> {
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     hintText: "09090605708",
-                    hintStyle: TextStyle(color: Colors.grey.shade500,fontSize: 14,),
+                    hintStyle: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14,
+                    ),
                     filled: true,
                     fillColor: Color(0xfff3f1f1),
                     contentPadding:
@@ -111,9 +117,21 @@ class _DeliveryAddressModalState extends State<DeliveryAddressModal> {
                         onTap: () {
                           showModalBottomSheet(
                             context: context,
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            builder: (context) => PaymentModal(),
+                            isScrollControlled:
+                                true, 
+                            backgroundColor: Colors
+                                .transparent, 
+                            builder: (context) {
+                              return Padding(
+                                padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context)
+                                      .viewInsets
+                                      .bottom, 
+                                ),
+                                child:
+                                    PaymentModal(),
+                              );
+                            },
                           );
                         },
                       ),
@@ -146,15 +164,15 @@ class _DeliveryAddressModalState extends State<DeliveryAddressModal> {
     );
   }
 
-  Widget _buildPaymentButton({required String text, required VoidCallback onTap}) {
+  Widget _buildPaymentButton(
+      {required String text, required VoidCallback onTap}) {
     return SizedBox(
       height: 50,
       width: 115,
       child: OutlinedButton(
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
-           padding:
-                          EdgeInsets.symmetric(horizontal: 0, vertical: 14),
+          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 14),
           backgroundColor: AppColors.secondarycolor,
           foregroundColor: AppColors.primarycolor,
           side: BorderSide(color: AppColors.primarycolor, width: 1),
