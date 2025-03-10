@@ -13,28 +13,11 @@ class _AuntheticationPageState extends State<AuntheticationPage> {
   final TextEditingController _nameController =
       TextEditingController(); // Controller for text field
 
-  String? _errorText;
-  void _validateAndProceed() {
-    setState(() {
-      if (_nameController.text.isEmpty) {
-        _errorText = "Name cannot be empty";
-      } else if (_nameController.text.length < 3) {
-        _errorText = "Name must be at least 3 characters long";
-      } else {
-        _errorText = null;
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomeRowPage()),
-        );
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           // Primary Theme Container with Images
@@ -125,7 +108,7 @@ class _AuntheticationPageState extends State<AuntheticationPage> {
                         fillColor: Colors.grey.shade200,
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                            errorText: _errorText,
+                           
                       ),
                     ),
 
@@ -136,7 +119,9 @@ class _AuntheticationPageState extends State<AuntheticationPage> {
                       height: 50,
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: _validateAndProceed,
+                       onPressed: (){
+                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeRowPage()));
+                       },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primarycolor,
                             foregroundColor: AppColors.secondarycolor,
