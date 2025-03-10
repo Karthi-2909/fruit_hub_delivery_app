@@ -27,7 +27,7 @@ class _SliderPageState extends State<SliderPage> {
     return Container(
       color: AppColors.secondarycolor,
       child: Center(
-        
+      
         child: Column(
           
           mainAxisAlignment: MainAxisAlignment.center,
