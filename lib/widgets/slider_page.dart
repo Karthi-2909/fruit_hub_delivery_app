@@ -51,7 +51,7 @@ class _SliderPageState extends State<SliderPage> {
               ),
               items: imgList.map((item) => Container(
                 height: 1000,
-                width: 300,
+                width: 500,
                    // margin: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       color: AppColors.primarycolor,
